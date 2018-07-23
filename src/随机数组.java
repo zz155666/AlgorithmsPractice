@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class 随机数组 {
 
     public static void main(String[] args) {
@@ -7,6 +9,7 @@ public class 随机数组 {
         for(int i=0;i<N;i++){
             a[i]=StdRandom.random();
         }
+        Arrays.sort(a);
         for(int i=0;i<N;i++){
             double x=1.0*i/N;
             double y=a[i]/2.0;
