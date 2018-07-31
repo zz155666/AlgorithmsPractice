@@ -24,7 +24,7 @@ public class StackNode<Item> implements Iterable<Item> {
     }
 
     public void push(Item item){
-        Node oldfirst=first;//这里应该是引用吧？？？
+        Node oldfirst=first;//这里应该是引用吧？？？明天验证一下
         first=new Node();
         first.item=item;
         first.next=oldfirst;
