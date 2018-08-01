@@ -1,6 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+        StackNodecopy<String> stack=new StackNodecopy<String>("1");
+        stack.push("2");
+     }
 }
