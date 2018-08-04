@@ -11,6 +11,9 @@
 public class UnionFind {
 
     private int[] id;
+
+    private int[] sz;//(由触点索引的)各个根节点所对应的分量的大小
+
     private int count;
 
     public UnionFind(int N){
@@ -18,6 +21,10 @@ public class UnionFind {
         id=new int[N];
         for(int i=0;i<N;i++){
             id[i]=i;
+        }
+        sz=new int[N];
+        for(int i=0;i<N;i++){
+            sz[i]=1;
         }
     }
 
@@ -49,12 +56,19 @@ public class UnionFind {
 //            }
 //        }
 
-        int pRoot=find(p);
-        int qRoot=find(q);
-        if(pRoot==qRoot){
+        int i=find(p);
+        int j=find(q);
+        if(i==j){
             return;
         }
-        id[pRoot]=qRoot;
+        if(sz[i]<sz[j]){
+            id[i]=j;
+            sz[j]+=sz[i];
+        }else{
+            id[j]=i;
+            sz[i]+=sz[j];
+        }
+
         count--;
     }
 
