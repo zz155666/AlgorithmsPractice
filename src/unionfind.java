@@ -29,22 +29,32 @@ public class UnionFind {
         return find(p)==find(q);
     }
     public int find(int p){
-        return id[p];
+        while(p!=id[p]){
+            p=id[p];
+        }
+        return p;
     }
     public void union(int p,int q){
         //将pq归并到相同的分量中
-        int pID=find(p);
-        int qID=find(q);
+//        int pID=find(p);
+//        int qID=find(q);
+//
+//        if(pID==qID){
+//            return;
+//        }
+//
+//        for(int i=0;i<id.length;i++){
+//            if(id[i]==pID){
+//                id[i]=qID;
+//            }
+//        }
 
-        if(pID==qID){
+        int pRoot=find(p);
+        int qRoot=find(q);
+        if(pRoot==qRoot){
             return;
         }
-
-        for(int i=0;i<id.length;i++){
-            if(id[i]==pID){
-                id[i]=qID;
-            }
-        }
+        id[pRoot]=qRoot;
         count--;
     }
 
