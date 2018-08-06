@@ -18,6 +18,9 @@ public class 算法比较 {
         if(alg.equals("Selection")){
             Selection.sort(a);
         }
+        if(alg.equals("Shelltion")){
+            Shelltion.sort(a);
+        }
         return timer.elapsedTime();
     }
 
@@ -35,10 +38,11 @@ public class 算法比较 {
     }
 
     public static void main(String[] args) {
-        int N=10000;
-        int T=100;
+        int N=100;
+        int T=10;
         double t1=timeRandomInput("Insertion",N,T);
         double t2=timeRandomInput("Selection",N,T);
+        double t3=timeRandomInput("Shelltion",N,T);
 
         StdOut.println("第一个算法的时间为："+t1+"  第二个算法的时间为："+t2+"  他们的比值为："+t2/t1);
 
