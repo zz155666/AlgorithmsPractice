@@ -30,7 +30,8 @@ public class 算法比较 {
         Double[] a=new Double[N];
         for(int t=0;t<T;t++){
             for (int i=0;i<N;i++){
-                a[i]=StdRandom.uniform();
+                double b=StdRandom.uniform(10);
+                a[i]=b;
             }
             total+=time(alg,a);
         }
@@ -38,8 +39,8 @@ public class 算法比较 {
     }
 
     public static void main(String[] args) {
-        int N=100;
-        int T=10;
+        int N=10;
+        int T=1;
         double t1=timeRandomInput("Insertion",N,T);
         double t2=timeRandomInput("Selection",N,T);
         double t3=timeRandomInput("Shelltion",N,T);

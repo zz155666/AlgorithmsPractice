@@ -13,10 +13,15 @@ public class Inertion {
     public static void sort(Comparable[] a){
         // 将a[]按升序排列
         int N=a.length;
+        //插入排序的二次循环  外层正序循环 内层倒序循环
         for(int i=0;i<N;i++){
             //将a[i]插入到a[i-1].a[i-2].a[i-3]....之中
-            for(int j=i;j>0&&less(a[j],a[j-1]);j--){
-                exch(a,j,j-1);
+            for(int j=i;j>0;j--){
+                Comparable aj=a[j];
+                Comparable aj1=a[j-1];
+                if(less(aj,aj1)){
+                    exch(a,j,j-1);
+                }
             }
         }
     }
