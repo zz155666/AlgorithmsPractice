@@ -14,13 +14,20 @@ public class Shelltion {
         // 将a[]按升序排列
         int N=a.length;
         int h=1;
-        while(h<N/3){
+        int n3=N/3;
+        while(h<n3){
             h=3*h+1;
         }
+        //希尔排序 先制造一个h有序数组
         while(h>=1){
             for (int i=h;i<N;i++){
-                for(int j=i;j>=h&&less(a[j],a[j-h]);j-=h){
-                    exch(a,j,j-h);
+                for(int j=i;j>=h;j-=h){
+                    Comparable aj=a[j];
+                    Comparable ajh=a[j-h];
+                    if(less(aj,ajh)){
+                        int jh=j-h;
+                        exch(a,j,jh);
+                    }
                 }
             }
             h=h/3;
